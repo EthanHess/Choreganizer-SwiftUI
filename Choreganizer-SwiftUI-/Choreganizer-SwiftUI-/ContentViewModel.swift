@@ -87,7 +87,20 @@ class ContentViewModel : ObservableObject {
     fileprivate func fetchDays() {
         let request = NSFetchRequest<Day>(entityName: "Day")
         do {
-           self.days = try container.viewContext.fetch(request)
+           //MARK: Sort days since order is not necessarily kept in core data without some sort of predicate
+            //Instead of doing this here, may be better to attempt double property wrapper
+            
+            //Used this for help but changed a view things https://stackoverflow.com/questions/53135422/swift-need-to-sort-an-array-of-string-days-of-week
+            
+            let weekdays = Calendar.current.weekdaySymbols.enumerated()
+            var weekdaysDict = [String: Int]()
+            weekdays.forEach { weekdaysDict[$0.1] = $0.0 }
+            
+            var dayArray = try container.viewContext.fetch(request)
+            dayArray.sort(by: { weekdaysDict[$0.name!] ?? -1 < weekdaysDict[$1.name!] ?? -1 })
+            
+            self.days = dayArray
+            
         } catch let error {
             print("Error fetching. \(error)")
         }

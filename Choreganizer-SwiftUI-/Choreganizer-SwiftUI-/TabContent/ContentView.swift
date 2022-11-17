@@ -92,3 +92,7 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+//MARK: Custom property wrapper
+
