@@ -90,7 +90,7 @@ class ContentViewModel : ObservableObject {
            //MARK: Sort days since order is not necessarily kept in core data without some sort of predicate
             //Instead of doing this here, may be better to attempt double property wrapper
             
-            //Used this for help but changed a view things https://stackoverflow.com/questions/53135422/swift-need-to-sort-an-array-of-string-days-of-week
+            //Used this for reference but changed a view things https://stackoverflow.com/questions/53135422/swift-need-to-sort-an-array-of-string-days-of-week
             
             let weekdays = Calendar.current.weekdaySymbols.enumerated()
             var weekdaysDict = [String: Int]()
