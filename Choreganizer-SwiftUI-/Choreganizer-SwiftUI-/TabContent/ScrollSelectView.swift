@@ -20,9 +20,11 @@ struct ScrollSelectView: View {
                     let days = viewModel.days
                     ForEach(0..<days.count, id: \.self) { index in
                         let day = days[index]
+                        Spacer()
                         Text(day.name!).onTapGesture {
                             selectedDay = day
                         }
+                        Spacer()
                     }
                 }
             }
@@ -30,7 +32,17 @@ struct ScrollSelectView: View {
                 if let currentDay = selectedDay {
                 let choreArray = currentDay.chores?.array as! [Chore]
                     ForEach(choreArray) { chore in
-                        Text(chore.body ?? "")
+                        HStack {
+                            Spacer()
+                            Text(chore.body ?? "")
+                            Spacer()
+                            Button {
+                                addNotificationForChore(chore: chore)
+                            } label: {
+                                Image("alarm")
+                            }
+                            Spacer()
+                        }
                     }.onDelete(perform: { offset in
                         self.removeItems(at: offset, from: currentDay)
                     })
@@ -38,6 +50,48 @@ struct ScrollSelectView: View {
             }
         }.onAppear {
             selectedDay = viewModel.days[0]
+        }
+    }
+    
+    //MARK: TODO Move for cleaner code
+    func addNotificationForChore(chore: Chore) {
+        //Present date picker then assign accordingly
+        
+        guard let choreBody = chore.body else {
+            //Alert, something went wrong
+            return
+        }
+        
+        let content = UNMutableNotificationContent()
+        content.title = ""
+        content.body = choreBody
+        
+        //MARK: From Apple's example, will want to change repeats to choice though and set correct date from date picker
+        
+        // Configure the recurring date.
+        var dateComponents = DateComponents()
+        dateComponents.calendar = Calendar.current
+
+        dateComponents.weekday = 3  // Tuesday
+        dateComponents.hour = 14    // 14:00 hours
+           
+        // Create the trigger as a repeating event.
+        let trigger = UNCalendarNotificationTrigger(
+                 dateMatching: dateComponents, repeats: true)
+        
+        // Create the request
+        let uuidString = UUID().uuidString
+        let request = UNNotificationRequest(identifier: uuidString,
+                    content: content, trigger: trigger)
+        
+        // Schedule the request with the system.
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.add(request) { (error) in
+           if error != nil {
+               print("Error sending notification \(error!.localizedDescription)")
+           } else {
+               print("Notification sent successfully!")
+           }
         }
     }
     

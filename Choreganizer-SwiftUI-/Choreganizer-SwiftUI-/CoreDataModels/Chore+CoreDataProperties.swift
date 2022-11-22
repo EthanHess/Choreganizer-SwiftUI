@@ -2,7 +2,7 @@
 //  Chore+CoreDataProperties.swift
 //  Choreganizer-SwiftUI-
 //
-//  Created by Ethan Hess on 6/27/22.
+//  Created by Ethan Hess on 11/22/22.
 //
 //
 
@@ -20,6 +20,7 @@ extension Chore {
     @NSManaged public var imageData: Data?
     @NSManaged public var isComplete: Bool
     @NSManaged public var uid: String?
+    @NSManaged public var fireDate: Date?
     @NSManaged public var day: Day?
 
 }

@@ -2,7 +2,7 @@
 //  Day+CoreDataClass.swift
 //  Choreganizer-SwiftUI-
 //
-//  Created by Ethan Hess on 6/27/22.
+//  Created by Ethan Hess on 11/22/22.
 //
 //
 

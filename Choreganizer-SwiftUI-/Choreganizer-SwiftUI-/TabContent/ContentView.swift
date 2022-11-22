@@ -30,7 +30,15 @@ struct ContentView: View {
     
     var textFieldHeader : some View {
         HStack {
+            Spacer()
             TextField("Enter in a new task", text: self.$choreBody).padding().background(Color.white).cornerRadius(5).border(Color.black, width: 1)
+            Spacer()
+            Button {
+                presentImagePicker()
+            } label: {
+                Image("camera")
+            }
+            Spacer()
         }
     }
     
@@ -40,23 +48,27 @@ struct ContentView: View {
                 List {
                     ForEach(viewModel.days) { day in
                         HStack {
-                            Text(day.name ?? "")
+                            let font = Font.system(size: 24).weight(.semibold)
+                            Text(day.name ?? "").font(font)
+                            Spacer()
                             Button {
                                 addChore(toDay: day)
                             } label: {
-                                Text("+")
+                                Text("+").font(font).foregroundColor(.black)
                             }
+                            Spacer()
                         }
                         let choreArray = day.chores?.array as! [Chore]
                         ForEach(choreArray) { chore in
                             Text(chore.body ?? "")
+                            //TODO add fire date, store date string in hash table or something since calculation is expensive
+                            //Text("\(chore.fireDate)")
                         }.onDelete(perform: { offset in
                             self.removeItems(at: offset, from: day)
                         })
                     }
                 }
             }
-            
     }
     
     private func addChore(toDay day: Day) {
@@ -82,6 +94,10 @@ struct ContentView: View {
     //fileprivate = private to file
     fileprivate func presentAlert() {
         print("No chore body")
+    }
+    
+    fileprivate func presentImagePicker() {
+        
     }
 }
 
