@@ -18,7 +18,9 @@ struct MainTabView: View {
                 ContentView().tabItem {
                     Image(systemName: "eye")
                     Text("List")
-                }.tag(0)
+                }.tag(0).background(
+                    LinearGradient(gradient: Gradient(colors: [.green, .blue]), startPoint: .leading, endPoint: .trailing)
+                )
                 ScrollSelectView().tabItem {
                     Image(systemName: "eye")
                     Text("Scroll")

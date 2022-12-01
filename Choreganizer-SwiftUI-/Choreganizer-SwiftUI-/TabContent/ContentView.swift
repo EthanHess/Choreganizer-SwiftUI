@@ -26,6 +26,12 @@ struct ContentView: View {
     
     @State private var isDetailPresented : Bool = false
     
+    //This works but is there a better way to do this? List background doesn't seem to update from "backgroundColor"
+    init() {
+        UITableView.appearance().backgroundColor = .clear
+        UITableViewCell.appearance().backgroundColor = .clear
+    }
+    
     //MARK: Eventually configure
     
     var textFieldHeader : some View {
@@ -42,6 +48,8 @@ struct ContentView: View {
         }
     }
     
+    //https://developer.apple.com/documentation/swiftui/link/padding(_:)-4suha
+    
     var body: some View {
             VStack {
                 textFieldHeader.padding()
@@ -54,9 +62,8 @@ struct ContentView: View {
                             Button {
                                 addChore(toDay: day)
                             } label: {
-                                Text("+").font(font).foregroundColor(.black)
+                                Text("+").font(font).foregroundColor(.white).padding(.trailing)
                             }
-                            Spacer()
                         }
                         let choreArray = day.chores?.array as! [Chore]
                         ForEach(choreArray) { chore in
@@ -66,7 +73,9 @@ struct ContentView: View {
                         }.onDelete(perform: { offset in
                             self.removeItems(at: offset, from: day)
                         })
-                    }
+                    }.listRowBackground(
+                        LinearGradient(gradient: Gradient(colors: [.white, .cyan]), startPoint: .leading, endPoint: .trailing)
+                    )
                 }
             }
     }
