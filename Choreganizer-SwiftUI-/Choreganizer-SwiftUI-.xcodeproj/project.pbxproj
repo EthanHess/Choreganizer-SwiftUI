@@ -12,6 +12,7 @@
 		272A7530290B243A00CA306E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272A752F290B243A00CA306E /* MainTabView.swift */; };
 		272A7532290B24FB00CA306E /* ScrollSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272A7531290B24FB00CA306E /* ScrollSelectView.swift */; };
 		272A7534290B252300CA306E /* NavigationSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272A7533290B252300CA306E /* NavigationSelectView.swift */; };
+		2793912229D34E4A00335B48 /* PickerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2793912129D34E4A00335B48 /* PickerContainer.swift */; };
 		27ADC5882926F50200DB92A8 /* PropertyWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ADC5872926F50200DB92A8 /* PropertyWrappers.swift */; };
 		27AE2EAA292D4E1E002338DF /* Chore+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE2EA6292D4E1E002338DF /* Chore+CoreDataClass.swift */; };
 		27AE2EAB292D4E1E002338DF /* Chore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE2EA7292D4E1E002338DF /* Chore+CoreDataProperties.swift */; };
@@ -50,6 +51,7 @@
 		272A752F290B243A00CA306E /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		272A7531290B24FB00CA306E /* ScrollSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollSelectView.swift; sourceTree = "<group>"; };
 		272A7533290B252300CA306E /* NavigationSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSelectView.swift; sourceTree = "<group>"; };
+		2793912129D34E4A00335B48 /* PickerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerContainer.swift; sourceTree = "<group>"; };
 		27ADC5872926F50200DB92A8 /* PropertyWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrappers.swift; sourceTree = "<group>"; };
 		27AE2EA6292D4E1E002338DF /* Chore+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chore+CoreDataClass.swift"; sourceTree = "<group>"; };
 		27AE2EA7292D4E1E002338DF /* Chore+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chore+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				272A7531290B24FB00CA306E /* ScrollSelectView.swift */,
 				272A7533290B252300CA306E /* NavigationSelectView.swift */,
 				272A752D2908A1D700CA306E /* ChoreDetailView.swift */,
+				2793912129D34E4A00335B48 /* PickerContainer.swift */,
 			);
 			path = TabContent;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				272A752E2908A1D700CA306E /* ChoreDetailView.swift in Sources */,
 				272A752C2908988D00CA306E /* ContentViewModel.swift in Sources */,
 				272A7532290B24FB00CA306E /* ScrollSelectView.swift in Sources */,
+				2793912229D34E4A00335B48 /* PickerContainer.swift in Sources */,
 				27BC6C06286A3E8F001D188C /* MainCoreDataModel.xcdatamodeld in Sources */,
 				27ADC5882926F50200DB92A8 /* PropertyWrappers.swift in Sources */,
 				27AE2EAB292D4E1E002338DF /* Chore+CoreDataProperties.swift in Sources */,

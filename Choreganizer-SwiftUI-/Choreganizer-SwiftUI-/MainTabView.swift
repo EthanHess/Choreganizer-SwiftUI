@@ -13,23 +13,23 @@ struct MainTabView: View {
         UITabBar.appearance().barTintColor = UIColor(named: "BackgroundBlue")
     }
     
+    let gradientBackground = LinearGradient(gradient: Gradient(colors: [.white, .blue]), startPoint: .leading, endPoint: .trailing)
+    
     var body: some View {
             TabView {
                 ContentView().tabItem {
                     Image(systemName: "eye")
                     Text("List")
-                }.tag(0).background(
-                    LinearGradient(gradient: Gradient(colors: [.green, .blue]), startPoint: .leading, endPoint: .trailing)
-                )
+                }.tag(0).background(gradientBackground)
                 ScrollSelectView().tabItem {
                     Image(systemName: "eye")
                     Text("Scroll")
-                }.tag(1)
+                }.tag(1).background(gradientBackground)
                 NavigationSelectView().tabItem {
                     Image(systemName: "eye")
                     Text("Navigation")
-                }.tag(2)
+                }.tag(2).background(gradientBackground)
             }
-            .accentColor(.white)
+            .accentColor(.white).tint(.cyan)
         }
 }
