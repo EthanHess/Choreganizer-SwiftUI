@@ -75,18 +75,29 @@ struct ScrollSelectView: View {
         }
         
         let content = UNMutableNotificationContent()
-        content.title = ""
+        content.title = "A friendly reminder"
         content.body = choreBody
         
         //MARK: From Apple's example, will want to change repeats to choice though and set correct date from date picker
         
-        // Configure the recurring date.
-        var dateComponents = DateComponents()
-        dateComponents.calendar = Calendar.current
-
-        dateComponents.weekday = 3  // Tuesday
-        dateComponents.hour = 14    // 14:00 hours
+//        // Configure the recurring date.
+//        var dateComponents = DateComponents()
+//        dateComponents.calendar = Calendar.current
+//
+//        dateComponents.weekday = 3  // Tuesday
+//        dateComponents.hour = 14    // 14:00 hours
+        
+        let calendar = Calendar.current
+        let dateComponents = calendar.dateComponents(
+            [.calendar, .timeZone,
+             .era, .quarter,
+             .year, .month, .day,
+             .hour, .minute, .second, .nanosecond,
+             .weekday, .weekdayOrdinal,
+             .weekOfMonth, .weekOfYear, .yearForWeekOfYear],
+        from: fireDate)
            
+        
         // Create the trigger as a repeating event.
         let trigger = UNCalendarNotificationTrigger(
                  dateMatching: dateComponents, repeats: true)
